@@ -1,0 +1,591 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: Inter, system-ui, sans-serif;
+  color: #f6f6f6;
+  background: #000000;
+  background-image: radial-gradient(
+    circle at 20% 20%,
+    rgba(0, 0, 0, 0.1) 0%,
+    transparent 50%
+  );
+  overflow-x: hidden;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.floating-nav {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.nav-pill {
+  background: rgba(27, 27, 42, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid darkblue;
+  border-radius: 50px;
+  padding: 8px;
+  display: flex;
+  gap: 55px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(246, 246, 246, 0.4);
+  transition: all 0.3s;
+}
+
+.nav-labels {
+  border-radius: 50px;
+  display: flex;
+  gap: 12px;
+
+}
+
+.nav-dot:hover,
+.nav-dot.active {
+  background: #64ffda;
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #64ffda;
+}
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.cosmic-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-title {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #64ffda, #7209b7);
+  background-clip: text;
+  color: transparent;
+}
+.stellar-decoration {
+  width: 100px;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #f72585, #64ffda, #7209b7);
+}
+.hero-section {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  background-image: url(vv.gif);
+}
+
+
+.nebula-blob {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(
+    circle,
+    rgba(247, 37, 133, 0.3) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+@keyframes float {
+  50% {
+    transform: scale(1.1);
+  }
+}
+.hero-content {
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: -59px;
+  padding: 20px;
+}
+.profile-constellation {
+  position: relative;
+  width: 350px;
+  height: 300px;
+}
+.profile-planet {
+  width:300px;
+  height: 300px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #7209b7, #f72585, #64ffda);
+  border: 6px solid rgba(100, 255, 218, 0.3);
+  box-shadow: 0 0 40px rgba(114, 9, 183, 0.4);
+  background-image: url('200.gif');
+  background-size: cover;
+  background-position: center;
+}
+.orbit {
+  position: absolute;
+  border: 2px solid rgba(100, 255, 218, 0.1);
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+}
+.orbit-1 {
+  inset: 10%;
+}
+.orbit-2 {
+  inset: 5%;
+  animation-direction: reverse;
+}
+.orbit-3 {
+  inset: 0;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.orbit-satellite {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #64ffda;
+  display: grid;
+  place-items: center;
+  color: #0a192f;
+  font-size: 14px;
+  box-shadow: 0 0 15px #64ffda;
+}
+.hero-title {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 8px;
+}
+.highlight {
+  background: linear-gradient(135deg, #f72585, #64ffda);
+  background-clip: text;
+  color: transparent;
+}
+.hero-subtitle {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  z-index: 100;
+}
+.cosmic-btn {
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+.cosmic-btn.primary {
+  background: linear-gradient(135deg, #7209b7, #f72585);
+  color: #f6f6f6;
+  box-shadow: 0 8px 24px rgba(114, 9, 183, 0.4);
+}
+.cosmic-btn.secondary {
+  background: rgba(27, 27, 42, 0.15);
+  border-color: rgba(100, 255, 218, 0.2);
+  color: #64ffda;
+  backdrop-filter: blur(12px);
+}
+.cosmic-btn:hover {
+  transform: translateY(-2px);
+}
+.floating-pod {
+  background: rgba(27, 27, 42, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  transition: transform 0.3s;
+}
+.floating-pod:hover {
+  transform: translateY(-4px);
+}
+.pod-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  background: linear-gradient(
+    135deg,
+    rgba(114, 9, 183, 0.3),
+    rgba(247, 37, 133, 0.3)
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.floating-pod:hover .pod-glow {
+  opacity: 1;
+}
+.about-constellation {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.stats-constellation {
+  display: grid;
+  gap: 20px;
+}
+.stat-planet {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #7209b7, #64ffda);
+  color: #0a192f;
+}
+.stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+}
+.stat-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.stats-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.stats-gif {
+  position: absolute;
+  inset: 0;
+  background-image: url('spacesh.gif');
+  background-size:350px;
+  background-position: center;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stats-constellation {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+}
+
+.projects-galaxy {
+  display: grid;
+  gap: 24px;
+}
+.project-pod {
+  max-width: 600px;
+}
+.project-pod.left {
+  justify-self: start;
+}
+.project-pod.right {
+  justify-self: end;
+}
+.project-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+.project-pod h3 {
+  color: #64ffda;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+.tech-constellation {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+.tech-star {
+  background: rgba(100, 255, 218, 0.2);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  color: #64ffda;
+  font-weight: 600;
+}
+.project-portals {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.portal-link {
+  padding: 8px 16px;
+  background: #7209b7;
+  color: #f6f6f6;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+.portal-link:hover {
+  background: #f72585;
+}
+.skills-universe {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+.skill-system {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: auto;
+}
+.central-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #7209b7, #64ffda);
+  color: #0a192f;
+  font-weight: 900;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.skill-satellite {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(27, 27, 42, 0.15);
+  border: 2px solid rgba(100, 255, 218, 0.2);
+  backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+  color: #64ffda;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+}
+.sat-1 {
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+}
+.sat-2 {
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sat-3 {
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+}
+
+.contact-station {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.contact-channels {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+.contact-channel {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: center;
+  background: rgba(27, 27, 42, 0.15);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 24px;
+  padding: 12px 16px;
+  backdrop-filter: blur(12px);
+}
+.contact-channel a {
+  color: #64ffda;
+  text-decoration: none;
+}
+.contact-channel a:hover {
+  color: #f72585;
+}
+
+.cosmic-form {
+  display: grid;
+  gap: 16px;
+}
+.form-cluster {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.cosmic-input {
+  background: rgba(27, 27, 42, 0.3);
+  border: 2px solid rgba(100, 255, 218, 0.2);
+  border-radius: 24px;
+  padding: 12px 20px;
+  color: #f6f6f6;
+  backdrop-filter: blur(12px);
+  transition: border 0.3s;
+}
+.cosmic-input::placeholder {
+  color: rgba(246, 246, 246, 0.7);
+}
+.cosmic-input:focus {
+  outline: none;
+  border-color: #64ffda;
+}
+.full-width {
+  width: 100%;
+}
+.cosmic-footer {
+  background: rgba(2, 6, 23, 0.8);
+  border-top: 1px solid rgba(100, 255, 218, 0.2);
+  padding: 24px 0;
+  backdrop-filter: blur(12px);
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 0 20px;
+}
+.social-constellation {
+  display: flex;
+  gap: 12px;
+}
+.social-star {
+  padding: 8px 16px;
+  background: rgba(27, 27, 42, 0.15);
+  color: #64ffda;
+  text-decoration: none;
+  border-radius: 20px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s;
+}
+.social-star:hover {
+  background: #7209b7;
+  color: #f6f6f6;
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about-constellation {
+    grid-template-columns: 1fr;
+  }
+  .contact-station {
+    grid-template-columns: 1fr;
+  }
+  .form-cluster {
+    grid-template-columns: 1fr;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+.legend-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+.legend-button {
+  background: #7209b7;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(114, 9, 183, 0.4);
+  transition: background 0.3s;
+}
+.legend-button:hover {
+  background: #560bad;
+}
+
+.legend-toggle {
+  display: none;
+}
+
+.legend-popup {
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  width: 280px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.legend-toggle:checked ~ .legend-popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+@media (max-width: 640px) {
+  .section-container {
+    padding: 60px 16px;
+  }
+  .stats-constellation {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .project-pod.left,
+  .project-pod.right {
+    justify-self: center;
+  }
+}
+
